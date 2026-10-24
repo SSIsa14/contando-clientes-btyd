@@ -11,7 +11,7 @@ fueron revisados por el autor.
 import numpy as np
 import pandas as pd
 
-from bgnbd import NOMBRES
+from bgnbd import NOMBRES, ajustar_bgnbd, loglik_bgnbd
 
 
 def simular_clientes(n, params, rng, T_min=27, T_max=39, horizonte_extra=0):
@@ -57,3 +57,22 @@ def simular_clientes(n, params, rng, T_min=27, T_max=39, horizonte_extra=0):
 
     return pd.DataFrame({"x": x, "tx": tx, "T": T, "x_star": x_star})
 
+
+def replicas_ajuste(params, semillas, n=2357, **kwargs_sim):
+    """Simula y reajusta el BG/NBD una vez por semilla.
+
+    Devuelve un DataFrame con los estimados de cada réplica, la log-verosimilitud
+    en el estimado (ll_est) y en los parámetros verdaderos (ll_verdadero).
+    """
+    log_verdaderos = np.log([params[k] for k in NOMBRES])
+    filas = []
+    for semilla in semillas:
+        sim = simular_clientes(n, params, np.random.default_rng(semilla), **kwargs_sim)
+        est = ajustar_bgnbd(sim["x"], sim["tx"], sim["T"])
+        filas.append({
+            "semilla": semilla,
+            **{k: est[k] for k in NOMBRES},
+            "ll_est": est["ll"],
+            "ll_verdadero": loglik_bgnbd(log_verdaderos, sim["x"], sim["tx"], sim["T"]),
+        })
+    return pd.DataFrame(filas)
