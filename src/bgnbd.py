@@ -1,33 +1,49 @@
 """
 Modelo BG/NBD.
 
+Log-verosimilitud — Herman Andrés Echeverría Rojas
 Funciones de pronóstico E[X(t)] y E[Y(tau)] — Sofía Isabela Sandoval Vásquez
+
+Referencia: Fader, Hardie y Lee (2005), "Counting Your Customers the Easy Way",
+Marketing Science 24(2), ecuaciones (6) y (7); y la nota de implementación en
+http://brucehardie.com/notes/004/.
 
 Declaración de uso de IA: se utilizó Claude (Anthropic) como herramienta de apoyo
 para comprender lo que pedía cada inciso del enunciado y como asistencia al escribir
 y depurar el código. El análisis, la verificación de resultados y su interpretación
-fueron revisados por la autora.
+fueron revisados por los autores.
 """
 import numpy as np
-from scipy.special import hyp2f1
+from scipy.special import betaln, gammaln, hyp2f1
+
+PARAMS_ARTICULO = {"r": 0.243, "alpha": 4.414, "a": 0.793, "b": 2.426}
+NOMBRES = ("r", "alpha", "a", "b")
 
 
-def esperado_X(t, params):
-    """Compras repetidas esperadas en (0, t] para un cliente recién adquirido."""
-    r, alpha, a, b = params["r"], params["alpha"], params["a"], params["b"]
-    t = np.asarray(t, dtype=float)
-    z = t / (alpha + t)
-    return ((a + b - 1) / (a - 1)
-            * (1 - (alpha / (alpha + t)) ** r * hyp2f1(r, b, a + b - 1, z)))
+def loglik_individual(log_params, x, tx, T):
+    """ln L(r, alpha, a, b | x, tx, T) de cada cliente (ecuación 6 del artículo).
 
-
-def esperado_Y(tau, x, tx, T, params):
-    """Compras esperadas en las siguientes tau semanas dado el historial (x, tx, T)."""
-    r, alpha, a, b = params["r"], params["alpha"], params["a"], params["b"]
+    Los parámetros entran en logaritmo para que el optimizador trabaje sin
+    restricciones de positividad. La suma de los dos términos de la ecuación se
+    hace con logaddexp para no perder precisión cuando ambos son muy pequeños.
+    """
+    r, alpha, a, b = np.exp(log_params)
     x, tx, T = (np.asarray(v, dtype=float) for v in (x, tx, T))
 
-    A = (alpha + T) / (alpha + T + tau)
-    xs = np.maximum(x, 1)  # evita b + x - 1 <= 0 cuando x = 0; ese término se anula abajo
-    D = 1 + np.where(x > 0, a / (b + xs - 1) * ((alpha + T) / (alpha + tx)) ** (r + x), 0.0)
-    num = 1 - A ** (r + x) * hyp2f1(r + x, b + x, a + b + x - 1, 1 - A)
-    return (a + b + x - 1) / (a - 1) * num / D
+    # Con x = 0 el segundo término no existe (delta_{x>0} = 0); xs evita evaluar
+    # betaln(a + 1, b - 1), que no tiene sentido si b < 1, y luego se descarta.
+    xs = np.maximum(x, 1)
+    base = gammaln(r + x) - gammaln(r) + r * np.log(alpha)
+    vivo = betaln(a, b + x) - betaln(a, b) - (r + x) * np.log(alpha + T)
+    muerto = np.where(
+        x > 0,
+        betaln(a + 1, b + xs - 1) - betaln(a, b) - (r + x) * np.log(alpha + tx),
+        -np.inf,
+    )
+    return base + np.logaddexp(vivo, muerto)
+
+
+def loglik_bgnbd(log_params, x, tx, T):
+    """Log-verosimilitud de la muestra (ecuación 7): suma de las individuales."""
+    return float(np.sum(loglik_individual(log_params, x, tx, T)))
+
