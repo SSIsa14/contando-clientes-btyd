@@ -62,7 +62,7 @@ def _inicios_por_defecto(semilla=0):
     ]
 
 
-def ajustar_bgnbd(x, tx, T, inicios=None):
+def ajustar_bgnbd(x, tx, T, inicios=None, loglik=None):
     """Estimador de máxima verosimilitud de (r, alpha, a, b).
 
     Minimiza -LL/n sobre los log-parámetros con Nelder–Mead y con L-BFGS-B
@@ -72,14 +72,16 @@ def ajustar_bgnbd(x, tx, T, inicios=None):
     cota emite una advertencia, porque entonces el máximo no es interior.
 
     Devuelve {"r", "alpha", "a", "b", "ll"} con ll en la escala original (suma).
+    `loglik` permite ajustar otra verosimilitud con la misma firma (el MBG/NBD).
     """
     x, tx, T = (np.asarray(v, dtype=float) for v in (x, tx, T))
     n = x.size
     inicios = _inicios_por_defecto() if inicios is None else inicios
+    loglik = loglik_bgnbd if loglik is None else loglik
     cotas = [(-COTA_LOG, COTA_LOG)] * 4
 
     def objetivo(log_params):
-        valor = -loglik_bgnbd(log_params, x, tx, T) / n
+        valor = -loglik(log_params, x, tx, T) / n
         return valor if np.isfinite(valor) else np.inf
 
     mejor = None
