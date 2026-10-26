@@ -1,0 +1,269 @@
+{
+  "productor": "notebooks/02_ajuste_cdnow.ipynb",
+  "seccion": "2.1",
+  "naturaleza": "ajuste manual validado; reemplaza semilla del artículo",
+  "parametros": {
+    "r": 0.2425945256794309,
+    "alpha": 4.41360214123103,
+    "a": 0.7929219296911957,
+    "b": 2.4259063420057316
+  },
+  "ll_sumada": -9582.429206673929,
+  "datos": {
+    "ruta": "data/CDNOW_sample.txt",
+    "sha256": "6fae10155c0b0ba363c2c386e30f77990d22328220efd862a5edd1443420d94a"
+  },
+  "fin_calibracion": "1997-09-30",
+  "inicio_holdout": "1997-10-01",
+  "fin_holdout": "1998-06-30",
+  "unidad_tiempo": "semanas (días / 7)",
+  "conteos": {
+    "registros_originales": 6919,
+    "transacciones_cliente_dia": 6696,
+    "clientes_calibracion": 2357,
+    "clientes_x_cero": 1411,
+    "repetidas_calibracion": 2457,
+    "compras_holdout": 1882
+  },
+  "T_min": 27.0,
+  "T_max": 38.857142857142854,
+  "orden_clientes": "orden de filas de resumen_clientes; cliente ascendente",
+  "versiones": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "lifetimes": "0.11.3",
+    "autograd": "1.9.1",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0",
+    "openpyxl": "3.1.5",
+    "python": "3.12.14"
+  },
+  "diagnostico": {
+    "aceptado": true,
+    "intentos": [
+      {
+        "id": 0,
+        "indice_inicio": 0,
+        "fase": "inicial",
+        "inicio_log": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "metodo": "Nelder-Mead",
+        "success": true,
+        "status": 0,
+        "message": "Optimization terminated successfully.",
+        "objetivo": 4.0655193918854176,
+        "objetivo_optimizador": 4.0655193918854176,
+        "log_params": [
+          -1.4163638479393539,
+          1.4846911681198465,
+          -0.23203051151127502,
+          0.8862052038432962
+        ],
+        "nit": 418,
+        "nfev": 722,
+        "njev": null,
+        "en_cota": [],
+        "utilizable": true
+      },
+      {
+        "id": 1,
+        "indice_inicio": 0,
+        "fase": "inicial",
+        "inicio_log": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "metodo": "L-BFGS-B",
+        "success": true,
+        "status": 0,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objetivo": 4.065519391885493,
+        "objetivo_optimizador": 4.065519391885493,
+        "log_params": [
+          -1.4163635630587736,
+          1.484691659009518,
+          -0.23203461236822545,
+          0.8862005323781954
+        ],
+        "nit": 17,
+        "nfev": 110,
+        "njev": 22,
+        "en_cota": [],
+        "utilizable": true
+      },
+      {
+        "id": 2,
+        "indice_inicio": 1,
+        "fase": "inicial",
+        "inicio_log": [
+          -1.4146938356415886,
+          1.4847813078345447,
+          -0.23193205734728903,
+          0.8862438105218584
+        ],
+        "metodo": "Nelder-Mead",
+        "success": true,
+        "status": 0,
+        "message": "Optimization terminated successfully.",
+        "objetivo": 4.065519391885418,
+        "objetivo_optimizador": 4.065519391885418,
+        "log_params": [
+          -1.4163638139742742,
+          1.4846911730962578,
+          -0.23203076728706362,
+          0.886204991470551
+        ],
+        "nit": 104,
+        "nfev": 220,
+        "njev": null,
+        "en_cota": [],
+        "utilizable": true
+      },
+      {
+        "id": 3,
+        "indice_inicio": 1,
+        "fase": "inicial",
+        "inicio_log": [
+          -1.4146938356415886,
+          1.4847813078345447,
+          -0.23193205734728903,
+          0.8862438105218584
+        ],
+        "metodo": "L-BFGS-B",
+        "success": true,
+        "status": 0,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objetivo": 4.065519391894804,
+        "objetivo_optimizador": 4.065519391894804,
+        "log_params": [
+          -1.4163641243229999,
+          1.4846903689283146,
+          -0.23198266768221681,
+          0.8862660282251066
+        ],
+        "nit": 7,
+        "nfev": 40,
+        "njev": 8,
+        "en_cota": [],
+        "utilizable": true
+      },
+      {
+        "id": 4,
+        "indice_inicio": 2,
+        "fase": "inicial",
+        "inicio_log": [
+          0.5478467492858172,
+          -0.9208531449445188,
+          -1.8361059042552212,
+          -1.9338894578858836
+        ],
+        "metodo": "Nelder-Mead",
+        "success": true,
+        "status": 0,
+        "message": "Optimization terminated successfully.",
+        "objetivo": 4.0655193918854176,
+        "objetivo_optimizador": 4.0655193918854176,
+        "log_params": [
+          -1.416363860452397,
+          1.4846911254207145,
+          -0.23203042605301968,
+          0.886205262680344
+        ],
+        "nit": 361,
+        "nfev": 647,
+        "njev": null,
+        "en_cota": [],
+        "utilizable": true
+      },
+      {
+        "id": 5,
+        "indice_inicio": 2,
+        "fase": "inicial",
+        "inicio_log": [
+          0.5478467492858172,
+          -0.9208531449445188,
+          -1.8361059042552212,
+          -1.9338894578858836
+        ],
+        "metodo": "L-BFGS-B",
+        "success": true,
+        "status": 0,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objetivo": 4.065519391886518,
+        "objetivo_optimizador": 4.065519391886518,
+        "log_params": [
+          -1.4163661505546319,
+          1.484686957709531,
+          -0.23203863229608004,
+          0.886198197517196
+        ],
+        "nit": 19,
+        "nfev": 130,
+        "njev": 26,
+        "en_cota": [],
+        "utilizable": true
+      }
+    ],
+    "seleccionado": 0,
+    "n_clientes": 2357,
+    "objetivo": "-LL/n",
+    "cotas_log": [
+      -10.0,
+      10.0
+    ],
+    "tolerancia_objetivo": 1e-07,
+    "opciones": {
+      "Nelder-Mead": {
+        "maxiter": 20000,
+        "xatol": 1e-08,
+        "fatol": 1e-10
+      },
+      "L-BFGS-B": {
+        "maxiter": 20000,
+        "ftol": 1e-12,
+        "gtol": 1e-08
+      }
+    },
+    "reintentos_discrepancia": 0,
+    "en_cota": [],
+    "rango_ll_exitosos": 2.2123437304344407e-08,
+    "acuerdo_ll_exitosos": true,
+    "n_exitosos": 6
+  },
+  "verificacion_lifetimes": {
+    "penalizer_coef": 0.0,
+    "parametros": {
+      "r": 0.2425945434210671,
+      "alpha": 4.413602716077372,
+      "a": 0.7929218333478554,
+      "b": 2.4259057287216725
+    },
+    "ll_sumada_propia": -9582.429206673934,
+    "diferencias_manual_menos_lifetimes": {
+      "r": -1.7741636187951215e-08,
+      "alpha": -5.748463420829353e-07,
+      "a": 9.634334030561575e-08,
+      "b": 6.132840590922228e-07
+    },
+    "diferencia_ll": 5.4569682106375694e-12,
+    "tolerancias": {
+      "rtol_parametros": 0.0002,
+      "atol_parametros": 2e-05,
+      "atol_ll": 1e-05
+    }
+  },
+  "codigo_sha256": {
+    "src/bgnbd.py": "80633adfc61fc31fd1f1b56973a211392195d1e6a6e1ef8ebdfdb9d2189db20d",
+    "src/datos.py": "00a25a3cdb91d5093f36df57cb016e6bef129400ce462218895d2c725e64a8e4",
+    "src/bootstrap_cdnow.py": "32b459103bbb56ca9926d283930467a98b29751190f59561a0d47474a3c32c7b"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "B": 200,
+  "semilla_muestreo": 14045,
+  "generador": "numpy.default_rng / PCG64",
+  "semilla_reintentos": 271828,
+  "max_llamadas_por_replica": 3,
+  "n_por_muestra": 2357,
+  "intentadas": 200,
+  "aceptadas": 200,
+  "no_resueltas": 0,
+  "en_cota": 0,
+  "reintentos_externos_total": 0,
+  "reintentos_discrepancia_total": 0,
+  "ddof": 1,
+  "errores_estandar": {
+    "r": 0.014747792057017397,
+    "alpha": 0.46259735778094657,
+    "a": 0.19389502665465363,
+    "b": 0.8007348085447493
+  },
+  "arranque_parametros": {
+    "r": 0.2425945256794309,
+    "alpha": 4.41360214123103,
+    "a": 0.7929219296911957,
+    "b": 2.4259063420057316
+  },
+  "arranque_log": [
+    -1.4163638479393539,
+    1.4846911681198465,
+    -0.23203051151127504,
+    0.8862052038432962
+  ],
+  "datos_sha256": "6fae10155c0b0ba363c2c386e30f77990d22328220efd862a5edd1443420d94a",
+  "historias_sha256": "e93fce994727a54060f3684256e61c097108db1d843141eb30d712f61cec136e",
+  "versiones": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "lifetimes": "0.11.3",
+    "autograd": "1.9.1",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0",
+    "openpyxl": "3.1.5",
+    "python": "3.12.14"
+  },
+  "replicas_csv_sha256": "df04c093f7b8d2732a93d7f00fff91802dbb089555cca180fdff2f207917cc20",
+  "simulacion_comparacion": {
+    "fuente": "notebooks/01_modelo_y_simulacion.ipynb",
+    "celda_id": "f91acd6a",
+    "fuente_sha256": "edab7d49c64fc2cbbb3bdf4a456c806c0f6c2af0e7785b884067d34cd219ad53",
+    "precision": "DE guardadas redondeadas a 3 decimales",
+    "DE": {
+      "r": 0.01,
+      "alpha": 0.326,
+      "a": 0.168,
+      "b": 0.671
+    },
+    "parametros": {
+      "r": 0.25,
+      "alpha": 4,
+      "a": 0.8,
+      "b": 2.5
+    },
+    "n": 2357,
+    "replicas": 40,
+    "T": "Uniforme(27,39) semanas"
+  },
+  "estado": "completo"
+}
