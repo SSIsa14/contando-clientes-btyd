@@ -6,3 +6,4 @@ jupyter
 scikit-learn
 lifetimes
 setuptools<81
+openpyxl
