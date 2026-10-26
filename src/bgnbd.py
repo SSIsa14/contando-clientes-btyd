@@ -134,3 +134,20 @@ def p_vivo(x, tx, T, params):
     xs = np.maximum(x, 1)  # evita b + x - 1 <= 0 cuando x = 0; ese término se anula abajo
     cociente = np.where(x > 0, a / (b + xs - 1) * ((alpha + T) / (alpha + tx)) ** (r + x), 0.0)
     return 1 / (1 + cociente)
+
+
+def p_compra(tau, x, tx, T, params):
+    """P(Z = 1 | x, tx, T): probabilidad de al menos una compra en las siguientes tau semanas.
+
+    Un cliente vivo que no compra sigue vivo, y dado que está vivo lambda | datos ~
+    Gamma(r + x, alpha + T); por la mezcla gamma–Poisson, la probabilidad de cero
+    compras en tau semanas es ((alpha + T) / (alpha + T + tau))^(r + x) (inciso 4.3).
+    """
+    return p_vivo(x, tx, T, params) * p_compra_si_vivo(tau, x, T, params)
+
+
+def p_compra_si_vivo(tau, x, T, params):
+    """1 - P(0 compras en tau | vivo); no depende de tx ni de (a, b), por eso lo reusa el MBG/NBD."""
+    r, alpha = params["r"], params["alpha"]
+    x, T = (np.asarray(v, dtype=float) for v in (x, T))
+    return 1 - ((alpha + T) / (alpha + T + tau)) ** (r + x)
