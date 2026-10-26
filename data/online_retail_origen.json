@@ -1,0 +1,75 @@
+{
+  "conjunto": "Online Retail (UCI 352), no Online Retail II",
+  "autor_datos": "Daqing Chen",
+  "doi": "10.24432/C5BW33",
+  "pagina_oficial": "https://archive.ics.uci.edu/dataset/352/online+retail",
+  "enlace_download_oficial": "https://archive.ics.uci.edu/static/public/352/online%2Bretail.zip",
+  "licencia": "CC BY 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/4.0/",
+  "archivo": "data/Online Retail.xlsx",
+  "bytes": 23715344,
+  "sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+  "zip_sha256_referencia": "f5385cbb54bbebf7196389109c6b0621faab0c304e3702548165e71c84aede8b",
+  "hoja": "Online Retail",
+  "filas": 541909,
+  "columnas": [
+    "InvoiceNo",
+    "StockCode",
+    "Description",
+    "Quantity",
+    "InvoiceDate",
+    "UnitPrice",
+    "CustomerID",
+    "Country"
+  ],
+  "tipos_celdas_excel": {
+    "InvoiceNo": {
+      "int": 532618,
+      "str": 9291
+    },
+    "StockCode": {
+      "str": 54873,
+      "int": 487036
+    },
+    "Description": {
+      "str": 540454,
+      "NoneType": 1454,
+      "int": 1
+    },
+    "Quantity": {
+      "int": 541909
+    },
+    "InvoiceDate": {
+      "datetime": 541909
+    },
+    "UnitPrice": {
+      "float": 537406,
+      "int": 4503
+    },
+    "CustomerID": {
+      "int": 406829,
+      "NoneType": 135080
+    },
+    "Country": {
+      "str": 541909
+    }
+  },
+  "nulos": {
+    "InvoiceNo": 0,
+    "StockCode": 0,
+    "Description": 1454,
+    "Quantity": 0,
+    "InvoiceDate": 0,
+    "UnitPrice": 0,
+    "CustomerID": 135080,
+    "Country": 0
+  },
+  "fecha_min": "2010-12-01T08:26:00",
+  "fecha_max": "2011-12-09T12:50:00",
+  "filas_quantity_negativa": 10624,
+  "filas_invoice_c": 9288,
+  "filas_unitprice_no_positivo": 2517,
+  "transformaciones": "ninguna; original conservado sin limpieza ni agregación",
+  "reproducir": "python scripts/obtener_retail.py",
+  "limpiar_original": "no recuperada; reutilización pendiente"
+}
