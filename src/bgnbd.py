@@ -3,6 +3,7 @@ Modelo BG/NBD.
 
 Log-verosimilitud y ajuste por máxima verosimilitud — Herman Andrés Echeverría Rojas
 Funciones de pronóstico E[X(t)] y E[Y(tau)] — Sofía Isabela Sandoval Vásquez
+P(vivo) y P(Z = 1) — José Gregorio Coronel Colombo
 
 Referencia: Fader, Hardie y Lee (2005), "Counting Your Customers the Easy Way",
 Marketing Science 24(2), ecuaciones (6) y (7); y la nota de implementación en
@@ -120,3 +121,16 @@ def esperado_Y(tau, x, tx, T, params):
     D = 1 + np.where(x > 0, a / (b + xs - 1) * ((alpha + T) / (alpha + tx)) ** (r + x), 0.0)
     num = 1 - A ** (r + x) * hyp2f1(r + x, b + x, a + b + x - 1, 1 - A)
     return (a + b + x - 1) / (a - 1) * num / D
+
+
+def p_vivo(x, tx, T, params):
+    """P(vivo | x, tx, T): probabilidad de que el cliente siga activo en T.
+
+    Con x = 0 vale exactamente 1: en el BG/NBD solo se muere justo después de una
+    compra repetida, y el cliente todavía no ha hecho ninguna.
+    """
+    r, alpha, a, b = params["r"], params["alpha"], params["a"], params["b"]
+    x, tx, T = (np.asarray(v, dtype=float) for v in (x, tx, T))
+    xs = np.maximum(x, 1)  # evita b + x - 1 <= 0 cuando x = 0; ese término se anula abajo
+    cociente = np.where(x > 0, a / (b + xs - 1) * ((alpha + T) / (alpha + tx)) ** (r + x), 0.0)
+    return 1 / (1 + cociente)
