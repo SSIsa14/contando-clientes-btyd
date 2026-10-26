@@ -1,0 +1,365 @@
+{
+  "productor": "notebooks/05_online_retail.ipynb",
+  "datos": {
+    "ruta": "data/Online Retail.xlsx",
+    "sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+    "fuente": "https://archive.ics.uci.edu/dataset/352/online+retail"
+  },
+  "sustitucion_limpiador": {
+    "autorizada_por": "usuario",
+    "original_recuperada": false,
+    "implementacion": "src/limpieza_retail.py",
+    "reglas": "neto firmado cliente-día > 0; devolución retenida; sin deduplicar"
+  },
+  "origen_tiempo": "2010-12-01",
+  "fin_calibracion": "2011-06-30",
+  "inicio_holdout": "2011-07-01",
+  "fin_holdout": "2011-12-08",
+  "tau_semanas": 23.0,
+  "cohorte": {
+    "clientes": 2959,
+    "x_cero": 1417,
+    "fraccion_x_cero": 0.47887799932409597,
+    "transacciones_calibracion": 7894,
+    "repetidas_calibracion": 4935,
+    "compras_holdout_cohorte": 6341,
+    "clientes_sin_compras_holdout": 974,
+    "clientes_solo_holdout_excluidos": 1374,
+    "compras_holdout_clientes_nuevos_excluidas": 2339,
+    "transacciones_9_diciembre_excluidas": 34,
+    "T_min": 0.0,
+    "T_max": 30.142857142857142,
+    "tx_min": 0.0,
+    "tx_max": 30.142857142857142,
+    "x_min": 0,
+    "x_max": 58,
+    "adquisicion_min": "2010-12-01",
+    "adquisicion_max": "2011-06-30"
+  },
+  "parametros": {
+    "r": 0.7400738332312865,
+    "alpha": 9.144550405767946,
+    "a": 4.5400369297551414e-05,
+    "b": 22019.841245856747
+  },
+  "ll_sumada": -15144.801920037338,
+  "inicios_naturales": [
+    [
+      1,
+      10,
+      0.1,
+      1
+    ],
+    [
+      0.5,
+      5,
+      0.01,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "diagnostico": {
+    "aceptado": true,
+    "intentos": [
+      {
+        "id": 0,
+        "indice_inicio": 0,
+        "fase": "inicial",
+        "inicio_log": [
+          0.0,
+          2.302585092994046,
+          -2.3025850929940455,
+          0.0
+        ],
+        "metodo": "Nelder-Mead",
+        "success": true,
+        "status": 0,
+        "message": "Optimization terminated successfully.",
+        "objetivo": 5.118216262279728,
+        "objetivo_optimizador": 5.118216262279728,
+        "log_params": [
+          -0.3010109880038,
+          2.213157672125573,
+          -10.0,
+          9.99490810287639
+        ],
+        "nit": 327,
+        "nfev": 608,
+        "njev": null,
+        "en_cota": [
+          "a"
+        ],
+        "utilizable": true
+      },
+      {
+        "id": 1,
+        "indice_inicio": 0,
+        "fase": "inicial",
+        "inicio_log": [
+          0.0,
+          2.302585092994046,
+          -2.3025850929940455,
+          0.0
+        ],
+        "metodo": "L-BFGS-B",
+        "success": true,
+        "status": 0,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objetivo": 5.118216295136984,
+        "objetivo_optimizador": 5.118216295136984,
+        "log_params": [
+          -0.3014789910776896,
+          2.2126992621958865,
+          -10.0,
+          7.136524611328454
+        ],
+        "nit": 25,
+        "nfev": 220,
+        "njev": 44,
+        "en_cota": [
+          "a"
+        ],
+        "utilizable": true
+      },
+      {
+        "id": 2,
+        "indice_inicio": 1,
+        "fase": "inicial",
+        "inicio_log": [
+          -0.6931471805599453,
+          1.6094379124341003,
+          -4.605170185988091,
+          0.0
+        ],
+        "metodo": "Nelder-Mead",
+        "success": true,
+        "status": 0,
+        "message": "Optimization terminated successfully.",
+        "objetivo": 5.118216262448705,
+        "objetivo_optimizador": 5.118216262448705,
+        "log_params": [
+          -0.30100275943485366,
+          2.2131592100611757,
+          -9.814910100944136,
+          9.998277583138893
+        ],
+        "nit": 284,
+        "nfev": 541,
+        "njev": null,
+        "en_cota": [],
+        "utilizable": true
+      },
+      {
+        "id": 3,
+        "indice_inicio": 1,
+        "fase": "inicial",
+        "inicio_log": [
+          -0.6931471805599453,
+          1.6094379124341003,
+          -4.605170185988091,
+          0.0
+        ],
+        "metodo": "L-BFGS-B",
+        "success": true,
+        "status": 0,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objetivo": 5.118216376356345,
+        "objetivo_optimizador": 5.118216376356345,
+        "log_params": [
+          -0.30099929495690975,
+          2.2131417426372093,
+          -10.0,
+          5.086003382777647
+        ],
+        "nit": 41,
+        "nfev": 320,
+        "njev": 64,
+        "en_cota": [
+          "a"
+        ],
+        "utilizable": true
+      },
+      {
+        "id": 4,
+        "indice_inicio": 2,
+        "fase": "inicial",
+        "inicio_log": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "metodo": "Nelder-Mead",
+        "success": true,
+        "status": 0,
+        "message": "Optimization terminated successfully.",
+        "objetivo": 5.118216262263379,
+        "objetivo_optimizador": 5.118216262263379,
+        "log_params": [
+          -0.3010053231242059,
+          2.213158117787708,
+          -9.999990318642755,
+          9.999699200707392
+        ],
+        "nit": 351,
+        "nfev": 640,
+        "njev": null,
+        "en_cota": [
+          "a",
+          "b"
+        ],
+        "utilizable": true
+      },
+      {
+        "id": 5,
+        "indice_inicio": 2,
+        "fase": "inicial",
+        "inicio_log": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "metodo": "L-BFGS-B",
+        "success": true,
+        "status": 0,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objetivo": 5.118216295682278,
+        "objetivo_optimizador": 5.118216295682278,
+        "log_params": [
+          -0.300950689595096,
+          2.2132385310514064,
+          -9.699813886115884,
+          6.649465616308006
+        ],
+        "nit": 35,
+        "nfev": 445,
+        "njev": 89,
+        "en_cota": [],
+        "utilizable": true
+      }
+    ],
+    "seleccionado": 4,
+    "n_clientes": 2959,
+    "objetivo": "-LL/n",
+    "cotas_log": [
+      -10.0,
+      10.0
+    ],
+    "tolerancia_objetivo": 1e-07,
+    "opciones": {
+      "Nelder-Mead": {
+        "maxiter": 20000,
+        "xatol": 1e-08,
+        "fatol": 1e-10
+      },
+      "L-BFGS-B": {
+        "maxiter": 20000,
+        "ftol": 1e-12,
+        "gtol": 1e-08
+      }
+    },
+    "reintentos_discrepancia": 0,
+    "en_cota": [
+      "a",
+      "b"
+    ],
+    "rango_ll_exitosos": 0.00033760108431568625,
+    "acuerdo_ll_exitosos": false,
+    "n_exitosos": 6
+  },
+  "avisos": [
+    "Parámetros en la cota de búsqueda: ['a', 'b']"
+  ],
+  "interpretacion": {
+    "tasa_semanal_activo": 0.08093058711388186,
+    "tasa_anual_activo_52": 4.208390529921856,
+    "abandono_medio_por_compra": 2.0617936658597735e-09,
+    "rango_ll_intentos": 0.00033760108431568625,
+    "rango_pronostico_23": [
+      5507.799801891573,
+      5507.92930821692
+    ],
+    "rango_a": [
+      4.5399929762484854e-05,
+      6.129490182396496e-05
+    ],
+    "rango_b": [
+      161.7421471305383,
+      22019.841245856747
+    ]
+  },
+  "verificacion": {
+    "lifetimes": "mismos parámetros; sin ajuste de paquete; penalizer_coef=0.0",
+    "comparaciones": [
+      {
+        "tau": 0,
+        "max_diferencia_absoluta": 0.0
+      },
+      {
+        "tau": 1,
+        "max_diferencia_absoluta": 1.9563739517280965e-11
+      },
+      {
+        "tau": 4,
+        "max_diferencia_absoluta": 7.341416363715325e-11
+      },
+      {
+        "tau": 13,
+        "max_diferencia_absoluta": 2.0089174768145313e-10
+      },
+      {
+        "tau": 23,
+        "max_diferencia_absoluta": 2.304076929249277e-10
+      }
+    ],
+    "limite_analitico_inferior_total": 5507.89083097225,
+    "limite_analitico_superior_total": 5507.890860580892,
+    "tolerancia_limites_relativa_con_piso_absoluto": 1e-07,
+    "exceso_maximo_sobre_superior": 2.798455134289668e-08,
+    "referencia_sin_abandono_total": 5507.890880233712,
+    "sin_cambio_codigo_compartido": true
+  },
+  "versiones": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "lifetimes": "0.11.3",
+    "matplotlib": "3.11.2",
+    "openpyxl": "3.1.5",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1",
+    "python": "3.12.14"
+  },
+  "codigo_sha256": {
+    "src/limpieza_retail.py": "f2d273469cbddb66768847406da2b9dcb04c006ad298d0875d651ce694577ac9",
+    "src/pronostico_retail.py": "5df2cac410a717fff8820590d8f30911540c30814654d457deaccd992edcf772",
+    "src/datos.py": "00a25a3cdb91d5093f36df57cb016e6bef129400ce462218895d2c725e64a8e4",
+    "src/bgnbd.py": "80633adfc61fc31fd1f1b56973a211392195d1e6a6e1ef8ebdfdb9d2189db20d"
+  },
+  "artefactos_sha256": {
+    "resultados/retail_dias.csv": "9c0ac26e2a39608ce5b8e81380fd311d76f66e6ea583d506d73e04d842b54474",
+    "resultados/retail_clientes.csv": "f9c3fac240a209997cf90a7f0df894860bf79b681f8ef7c67f181a3f7420c46e",
+    "resultados/retail_frecuencias.csv": "a7cc33ba27e06b63f1ea249083f0e634b73a250c58296f3eb611be9c440539d7",
+    "resultados/retail_sensibilidad.csv": "9ad86496832e15d939f6fd5c4fb6b90ba2e39f5e7e2135f6d4c2dc59ad486bcc",
+    "resultados/retail_diario.csv": "5596de7a4aaeac9d85abc540feeb8908bf12907d9e88ec9b647c02a4329834f7",
+    "resultados/retail_semanal.csv": "dfd78f365625460a1b5c7c0d0241a59b8041160094b657c4c067606593b198d3",
+    "resultados/retail_mensual.csv": "43fc52b234e3da5789829ac34302040a8915852a363677363558f2e84486b116",
+    "resultados/retail_limpieza_auditoria.json": "ac3e5eb022603371e996d4dd67030f5ae626442f14b6f22bdf71b834a257e615",
+    "resultados/params_retail.json": "b7132fb38460105768dcbea1e017fbae08536faf65721328fd953e4e1123a56f",
+    "resultados/retail_holdout.json": "39d8359856bcaf5025cc8e35aa8aefcfd7aa27727e388553f75920bd20003130"
+  },
+  "params_cdnow_sha256_sin_modificar": "a184ad4c2570e904d3d578dc4b20cfa42cae50107d5fed0e96cad67315ad58bd",
+  "limitaciones": [
+    "cotas y débil identificación de a,b",
+    "una sola ventana para estacionalidad",
+    "original limpiar no recuperada; sustitución autorizada",
+    "revisión humana pendiente"
+  ],
+  "cambio_compartido": false
+}
