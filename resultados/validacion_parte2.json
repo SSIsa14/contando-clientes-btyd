@@ -1,0 +1,28 @@
+{
+  "estado": "completo: auditoría de artefactos aprobada",
+  "alcance": "Parte 2; no certifica Retail, presentación ni revisión humana",
+  "notebook_sha256": "04c2e01db6fb839635df61496fa19838fa6d0c0ea1fc4d1c3aafc4283b2d5270",
+  "celdas_codigo_ejecutadas": 10,
+  "parametros": {
+    "r": 0.2425945256794309,
+    "alpha": 4.41360214123103,
+    "a": 0.7929219296911957,
+    "b": 2.4259063420057316
+  },
+  "ll_sumada": -9582.429206673929,
+  "bootstrap_aceptadas": 200,
+  "bootstrap_no_resueltas": 0,
+  "bootstrap_en_cota": 0,
+  "intentos_optimizacion_bootstrap": 400,
+  "intentos_fallidos_bootstrap": 0,
+  "verificaciones": [
+    "esquema JSON y finitud",
+    "fuente y código por SHA-256",
+    "consistencia parámetros/proveniencia/arranque/salida notebook",
+    "200 muestras reproducidas y multiplicidad preservada",
+    "DE ddof=1 desde CSV",
+    "selección y contabilidad por réplica",
+    "notebook ejecutado sin errores guardados",
+    "figuras presentes; legibilidad inspeccionada por separado"
+  ]
+}
