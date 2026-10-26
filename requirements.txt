@@ -3,5 +3,6 @@ pandas
 scipy
 matplotlib
 jupyter
+scikit-learn
 lifetimes
 setuptools<81
