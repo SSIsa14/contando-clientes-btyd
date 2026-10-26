@@ -32,6 +32,19 @@ jupyter notebook
 
 Ejecutar `00_preparacion`, `03_pronostico` y `04_quien_sigue_vivo`. Los notebooks `03` y `04` toman los parámetros de `resultados/params_cdnow.json`; si ese archivo todavía no existe, usa los reportados en el artículo original.
 
+La Parte 2 de Jorge está en `notebooks/02_ajuste_cdnow.ipynb`: ajuste manual,
+interpretación y bootstrap de 200 remuestras de clientes. Entorno y reproducción:
+[docs/parte2.md](docs/parte2.md). Este notebook publica los parámetros ajustados;
+el refresco de las Partes 3/4 queda pendiente de integración. Alcance restante y
+entradas recuperadas: [docs/entrega_jorge.md](docs/entrega_jorge.md).
+
+La Parte 5 está ejecutada en `notebooks/05_online_retail.ipynb`; reproducción:
+[docs/parte5.md](docs/parte5.md). Las Partes 2 y 5 son independientes y usan el
+entorno validado Python 3.12.14 de `requirements-parte2.lock`. Por reasignación
+explícita del usuario, Gregorio se encarga de toda la presentación y del refresco
+de Parte 4; Sofía conserva Parte 3 e integración final. La propuesta original se
+mantiene como registro histórico. La entrega de Jorge no declara completo al grupo.
+
 ## Notas
 
 - `lifetimes` se usa únicamente para verificar resultados.
