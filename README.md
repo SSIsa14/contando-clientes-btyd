@@ -11,10 +11,13 @@ data/
   CDNOW_sample.txt             datos originales (Bruce Hardie)
 src/
   datos.py                     carga de CDNOW y resumen por cliente (x, tx, T, x*)
-  bgnbd.py                     E[X(t)] y E[Y(τ)] del BG/NBD
+  bgnbd.py                     verosimilitud y ajuste, E[X(t)], E[Y(τ)], P(vivo) y P(Z = 1) del BG/NBD
+  mbgnbd.py                    verosimilitud, ajuste, P(vivo), P(Z = 1), E[X(t)] y E[Y(τ)] del MBG/NBD
+  simulacion.py                simulador de clientes BG/NBD
 notebooks/
   00_preparacion.ipynb         Parte 0: preparación de los datos
   03_pronostico.ipynb          Parte 3: pronóstico bottom-up vs. top-down
+  04_quien_sigue_vivo.ipynb    Parte 4: P(vivo), P(Z = 1) y MBG/NBD
 figs/                          figuras generadas por los notebooks
 ```
 
@@ -27,7 +30,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-Ejecutar `00_preparacion` y luego `03_pronostico`. El notebook `03` toma los parámetros de `resultados/params_cdnow.json`; si ese archivo todavía no existe, usa los reportados en el artículo original.
+Ejecutar `00_preparacion`, `03_pronostico` y `04_quien_sigue_vivo`. Los notebooks `03` y `04` toman los parámetros de `resultados/params_cdnow.json`; si ese archivo todavía no existe, usa los reportados en el artículo original.
 
 ## Notas
 
