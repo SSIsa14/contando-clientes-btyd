@@ -45,28 +45,28 @@
   "filas_crudas": 541909,
   "bitacora_limpiar": [
     {
-      "regla": "Duplicados exactos",
+      "regla": "Filas duplicadas exactas (se conserva la primera)",
       "filas": 5268,
       "monto": 21740.98
     },
     {
-      "regla": "Facturas con prefijo A (ajuste de deuda)",
+      "regla": "Facturas con prefijo A (ajuste de deuda incobrable)",
       "filas": 3,
       "monto": -11062.06
     },
     {
-      "regla": "Cantidad negativa sin ser cancelación",
-      "filas": 1336,
-      "monto": 0.0
-    },
-    {
-      "regla": "Códigos que no son mercancía",
+      "regla": "Códigos que no son mercancía (envío, comisiones, muestras)",
       "filas": 2259,
       "monto": 39792.901
     },
     {
-      "regla": "Precio igual a cero o negativo",
-      "filas": 1166,
+      "regla": "Precio unitario cero o negativo",
+      "filas": 2502,
+      "monto": 0.0
+    },
+    {
+      "regla": "Cantidad negativa en facturas que no son cancelación",
+      "filas": 0,
       "monto": 0.0
     }
   ],

@@ -72,6 +72,7 @@
     "pronostico_por_dia": 34.117313565238994,
     "razon_diaria_vs_octubre": 1.5281428142814282,
     "diciembre_observado_dias": 8,
-    "diciembre_real_por_dia": 57.75
+    "diciembre_real_por_dia": 57.75,
+    "fraccion_error_neto": 0.7498743810566576
   }
 }

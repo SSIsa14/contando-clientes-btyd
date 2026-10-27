@@ -88,7 +88,7 @@ class LimpiarTarea3Test(unittest.TestCase):
             "Quantity": [1, 1, 1, -1, -1, 1, 1],
             "UnitPrice": [1., 1., 1., 1., 1., 1., 0.],
         })
-        # se van: duplicado, factura A, negativa sin C, POST y precio 0; queda la cancelación
+        # se van: duplicado, factura A, POST, precio 0 y negativa sin C; queda la cancelación
         self.assertEqual(limpiar(df).index.tolist(), [0, 4])
 
 

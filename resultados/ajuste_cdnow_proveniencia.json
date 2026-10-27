@@ -1,7 +1,7 @@
 {
   "productor": "notebooks/02_ajuste_cdnow.ipynb",
   "seccion": "2.1",
-  "naturaleza": "ajuste manual validado; reemplaza semilla del artículo",
+  "naturaleza": "ajuste manual validado",
   "parametros": {
     "r": 0.24259452951758145,
     "alpha": 4.413602204637224,
@@ -30,7 +30,7 @@
   "orden_clientes": "orden de filas de resumen_clientes; cliente ascendente",
   "versiones": {
     "numpy": "2.5.4",
-    "pandas": "3.1.0",
+    "pandas": "3.0.6",
     "scipy": "1.18.1",
     "matplotlib": "3.11.2",
     "lifetimes": "0.11.3",

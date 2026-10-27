@@ -322,7 +322,7 @@
   },
   "versiones": {
     "numpy": "2.5.4",
-    "pandas": "3.1.0",
+    "pandas": "3.0.6",
     "scipy": "1.18.1",
     "lifetimes": "0.11.3",
     "matplotlib": "3.11.2",
@@ -332,7 +332,7 @@
     "python": "3.12.3"
   },
   "codigo_sha256": {
-    "src/limpieza_retail.py": "f314ee9cc796425475c5567d1b9abaa1a42e3fbff6e6e5bc73fb4e71d951a189",
+    "src/limpieza_retail.py": "700c1b10760e6ce2cd76f5a753a3f8bc510e5812c563b27e5d6c9eda800ca345",
     "src/pronostico_retail.py": "537ce27332e1a2beb18e136e07af1b69f4fb99827521d2fa6d5c9f586f8e4453",
     "src/datos.py": "00a25a3cdb91d5093f36df57cb016e6bef129400ce462218895d2c725e64a8e4",
     "src/bgnbd.py": "5878b2f26f76163c5fd495ee785ec1053edd2deabbf7365a7e7d17c3a640994d"
@@ -345,9 +345,9 @@
     "resultados/retail_diario.csv": "a70ae538f6c6338eba46925b911bac8b0f6d42c18dcab3b1cd7507dc48cf1855",
     "resultados/retail_semanal.csv": "764141d156384571dcc912901f2c9ee021818a8890ad5605ee4fbeabcc673474",
     "resultados/retail_mensual.csv": "78a0a2e1bc72bb2080a5247c55085f56612227507803fae62bffbf2ed854d180",
-    "resultados/retail_limpieza_auditoria.json": "9b1df9b66828d272cd97cabdc546e5d20534c2f51bbd8d3933a00256e55503be",
+    "resultados/retail_limpieza_auditoria.json": "aa091881b3377615d7adb41070001d11b3ed4c7559bc366a3509ca1420992c5a",
     "resultados/params_retail.json": "e551b1980a6fe66e5ef344b49af9752c0593c0746d60c7d3497522cc8a7fb6a8",
-    "resultados/retail_holdout.json": "9a06a48e94cc6647b46cc315af5648a6b01b47274ed8d0b3931c48e706d4cbfa"
+    "resultados/retail_holdout.json": "9ad1856a98f74fd4d45883b43905c892521c2cd891f051439035d242168c93fd"
   },
   "params_cdnow_sha256_sin_modificar": "b91910a50e1c64a4515aac537b8609cfbaee77526be3cd76cf1a5f7c0768ceea",
   "limitaciones": [

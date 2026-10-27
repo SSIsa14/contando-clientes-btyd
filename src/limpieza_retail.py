@@ -1,12 +1,12 @@
 """Preparación de Online Retail para la Parte 5.
 
 Autor: Jorge Armando Ferguson Yaeggy · Grupo 1. Uso de IA: implementación asistida
-por Codex (OpenAI). `limpiar` y `bitacora` son las de la tarea de series de tiempo
-(Tarea 3, `codigo/limpieza_datos.py`), copiadas sin cambiar sus reglas.
+por Codex (OpenAI). `limpiar` y `bitacora` aplican las mismas reglas, en el mismo
+orden, que `limpiar` de la tarea de series de tiempo (Tarea 3, `src/limpieza.py`).
 
 Flujo: limpiar(raw) quita las líneas que no son venta (duplicados exactos, facturas A,
-cantidades negativas que no son cancelación, códigos que no son mercancía y precios
-<= 0); netear_por_dia(limpio) se queda con las líneas con CustomerID, suma
+códigos que no son mercancía, precios <= 0 y cantidades negativas que no son
+cancelación); netear_por_dia(limpio) se queda con las líneas con CustomerID, suma
 Quantity × UnitPrice por cliente-día (las devoluciones restan) y conserva los días
 con venta neta positiva. Las sumas usan Decimal(str(valor)) a enteros de escala
 común: sin redondeo a centavos ni epsilon para decidir si una venta neta es positiva.
@@ -24,9 +24,9 @@ FIN_CALIB_RETAIL = pd.Timestamp("2011-06-30")
 FIN_HOLDOUT_RETAIL = pd.Timestamp("2011-12-08")
 
 # --- limpiar de la Tarea 3 -------------------------------------------------------------
-# códigos que no son mercancía: envíos, comisiones, muestras y la deuda incobrable.
+# códigos que no son mercancía: envíos, comisiones y muestras.
 # M (ajuste manual) y D (descuento) se quedan porque corrigen el precio de ventas reales.
-CODIGOS_NO_VENTA = ["POST", "DOT", "C2", "AMAZONFEE", "BANK CHARGES", "CRUK", "S", "B"]
+CODIGOS_NO_VENTA = ["POST", "DOT", "C2", "BANK CHARGES", "AMAZONFEE", "CRUK", "S"]
 
 
 def es_cancelacion(df):
@@ -35,12 +35,13 @@ def es_cancelacion(df):
 
 # cada regla devuelve True en las filas que se van; se aplican en este orden
 REGLAS = [
-    ("Duplicados exactos", lambda d: d.duplicated()),
-    ("Facturas con prefijo A (ajuste de deuda)", lambda d: d["InvoiceNo"].astype(str).str.startswith("A")),
-    ("Cantidad negativa sin ser cancelación",
+    ("Filas duplicadas exactas (se conserva la primera)", lambda d: d.duplicated()),
+    ("Facturas con prefijo A (ajuste de deuda incobrable)", lambda d: d["InvoiceNo"].astype(str).str.startswith("A")),
+    ("Códigos que no son mercancía (envío, comisiones, muestras)",
+     lambda d: d["StockCode"].astype(str).isin(CODIGOS_NO_VENTA)),
+    ("Precio unitario cero o negativo", lambda d: d["UnitPrice"] <= 0),
+    ("Cantidad negativa en facturas que no son cancelación",
      lambda d: (d["Quantity"] < 0) & ~es_cancelacion(d)),
-    ("Códigos que no son mercancía", lambda d: d["StockCode"].astype(str).isin(CODIGOS_NO_VENTA)),
-    ("Precio igual a cero o negativo", lambda d: d["UnitPrice"] <= 0),
 ]
 
 

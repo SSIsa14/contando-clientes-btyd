@@ -1,7 +1,7 @@
 {
   "estado": "completo: auditoría de artefactos aprobada",
   "alcance": "Parte 2",
-  "notebook_sha256": "e466e15bd07f4c323938408289e8e98041aa0dae81e420e7d6f1626593983010",
+  "notebook_sha256": "0a1bc0a22c6fe9613760ab357b9fc9bd611120c317ff8a8c2425dad7e8782c9d",
   "celdas_codigo_ejecutadas": 10,
   "parametros": {
     "r": 0.24259452951758145,

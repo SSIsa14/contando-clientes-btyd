@@ -22,9 +22,10 @@ netos diarios, la cohorte, los totales y las tablas, sin usar el código de `src
 
 ## Preparación
 
-1. `limpiar` de la Tarea 3 (copiada en `src/limpieza_retail.py`) quita duplicados
-   exactos (5 268), facturas A (3), cantidades negativas sin cancelación (1 336),
-   códigos que no son mercancía (2 259) y precios ≤ 0 (1 166). Quedan 531 877 líneas.
+1. `limpiar` de la Tarea 3 (mismas reglas y mismo orden, en `src/limpieza_retail.py`)
+   quita duplicados exactos (5 268), facturas A (3), códigos que no son mercancía
+   (2 259), precios ≤ 0 (2 502) y cantidades negativas sin cancelación (0). Quedan
+   531 877 líneas.
 2. Se quedan las 400 190 líneas con `CustomerID`.
 3. Venta neta por cliente-día = Σ Quantity × UnitPrice (las devoluciones restan).
    De 19 223 cliente-días, 16 562 tienen venta neta positiva y son transacciones.
@@ -46,4 +47,4 @@ arranque con la misma verosimilitud y el mismo total pronosticado.
 
 Holdout: pronóstico 5 492.9 contra 6 319 compras reales (−13.1 %). Noviembre tiene
 54.8 compras por día contra 34.1 pronosticadas, y por sí solo explica ≈ 75 % del
-error. Las respuestas a 5.1 y 5.2 están en el notebook.
+error neto. Las respuestas a 5.1 y 5.2 están en el notebook.

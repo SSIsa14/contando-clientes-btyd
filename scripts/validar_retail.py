@@ -23,7 +23,7 @@ sys.path.insert(0, str(RAIZ / "src"))
 from bgnbd import esperado_Y, loglik_bgnbd, NOMBRES
 
 # copia de la lista de limpiar (Tarea 3) para que el oráculo no dependa de src/
-CODIGOS_NO_VENTA = {"POST", "DOT", "C2", "AMAZONFEE", "BANK CHARGES", "CRUK", "S", "B"}
+CODIGOS_NO_VENTA = {"POST", "DOT", "C2", "BANK CHARGES", "AMAZONFEE", "CRUK", "S"}
 
 
 def sha(ruta):

@@ -34,7 +34,7 @@
   "historias_sha256": "e93fce994727a54060f3684256e61c097108db1d843141eb30d712f61cec136e",
   "versiones": {
     "numpy": "2.5.4",
-    "pandas": "3.1.0",
+    "pandas": "3.0.6",
     "scipy": "1.18.1",
     "matplotlib": "3.11.2",
     "lifetimes": "0.11.3",
@@ -49,7 +49,7 @@
   "simulacion_comparacion": {
     "fuente": "notebooks/01_modelo_y_simulacion.ipynb",
     "celda_id": "f91acd6a",
-    "fuente_sha256": "3c508755fc0fe0302bd9cde518698b27e940fc8770f7dc24c4a78d0d86ab222c",
+    "fuente_sha256": "1f06948bcf2f255226cce46cbdc2f6a657cdb94ecd59b6f0fb84588749c108bb",
     "precision": "DE guardadas redondeadas a 3 decimales",
     "DE": {
       "r": 0.01,
