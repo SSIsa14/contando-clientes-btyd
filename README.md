@@ -25,6 +25,7 @@ notebooks/
   03_pronostico.ipynb          Parte 3: pronóstico bottom-up vs. top-down
   04_quien_sigue_vivo.ipynb    Parte 4: P(vivo), P(Z = 1) y MBG/NBD
   05_online_retail.ipynb       Parte 5: Online Retail
+  06_logistica.ipynb           Parte 6 (opcional): regresión logística vs. BG/NBD
 resultados/                    parámetros estimados y tablas generadas
 figs/                          figuras generadas por los notebooks
 docs/                          detalles de reproducción de las Partes 2 y 5
@@ -40,7 +41,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-Ejecutar los notebooks en orden, de `00` a `05`, desde la carpeta `notebooks/`. Todos parten de los archivos originales de `data/`. El notebook `02` estima los parámetros de CDNOW y los guarda en `resultados/params_cdnow.json`, archivo que leen los notebooks `01`, `03` y `04`; el repositorio ya lo incluye, por lo que el orden anterior funciona desde un clon nuevo. Los notebooks `01`, `02` y `05` tardan algunos minutos (simulación, bootstrap y carga del Excel).
+Ejecutar los notebooks en orden, de `00` a `06`, desde la carpeta `notebooks/`. Todos parten de los archivos originales de `data/`. El notebook `02` estima los parámetros de CDNOW y los guarda en `resultados/params_cdnow.json`, archivo que leen los notebooks `01`, `03`, `04` y `06`; el repositorio ya lo incluye, por lo que el orden anterior funciona desde un clon nuevo. Los notebooks `01`, `02` y `05` tardan algunos minutos (simulación, bootstrap y carga del Excel).
 
 Las versiones exactas con las que se validaron las Partes 2 y 5 están en `requirements-parte2.lock`; los pasos de reproducción y validación de esas partes están en [docs/parte2.md](docs/parte2.md) y [docs/parte5.md](docs/parte5.md).
 
