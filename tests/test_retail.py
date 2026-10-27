@@ -1,4 +1,4 @@
-"""Riesgos reales de preparación Retail; implementación asistida por Codex."""
+"""Pruebas de la preparación de Online Retail (Parte 5). Autor: Jorge Ferguson; asistidas por Codex (OpenAI)."""
 import sys
 import unittest
 from pathlib import Path
@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from limpieza_retail import limpiar, historias_retail, FIN_CALIB_RETAIL, FIN_HOLDOUT_RETAIL
+from limpieza_retail import limpiar, netear_por_dia, historias_retail, FIN_CALIB_RETAIL, FIN_HOLDOUT_RETAIL
 from pronostico_retail import tablas_holdout
 
 
@@ -27,7 +27,7 @@ class LimpiezaRetailTest(unittest.TestCase):
             (3, "2011-06-01 17:00", -2, 1., "CD"),
         ])
         copia = df.copy(deep=True)
-        trans, dias, audit = limpiar(df, devolver_auditoria=True)
+        trans, dias, audit = netear_por_dia(df, devolver_auditoria=True)
         self.assertEqual(trans.cliente.tolist(), ["2"])
         self.assertEqual(dias.set_index("cliente").venta_neta_exacta.to_dict(), {"1": "0", "2": "1", "3": "-1"})
         self.assertEqual(trans.iloc[0].lineas, 2)
@@ -44,7 +44,7 @@ class LimpiezaRetailTest(unittest.TestCase):
                      (1, "2011-06-01", 1, .2, "B"),
                      (1, "2011-06-01", -1, .3, "C"),
                      (2, "2011-06-01", 1, 1e-12, "D")])
-        trans, dias, _ = limpiar(df, devolver_auditoria=True)
+        trans, dias, _ = netear_por_dia(df, devolver_auditoria=True)
         self.assertEqual(trans.cliente.tolist(), ["2"])
         self.assertEqual(trans.venta_neta_exacta.iloc[0], "0.000000000001")
         self.assertEqual(dias.set_index("cliente").venta_neta_exacta["1"], "0")
@@ -53,7 +53,7 @@ class LimpiezaRetailTest(unittest.TestCase):
         df = lineas([(1, "2011-06-01", 2, 3, "A"),
                      (1, "2011-06-01", 1, -2, "C1"),
                      (1, "2011-06-01", -1, 1, "C2")])
-        trans = limpiar(df)
+        trans = netear_por_dia(df)
         self.assertEqual(trans.venta_neta_exacta.iloc[0], "3")
         self.assertEqual(trans.lineas.iloc[0], 3)
 
@@ -63,7 +63,7 @@ class LimpiezaRetailTest(unittest.TestCase):
                      ("1.0", "2011-06-01", 1, 1, "D")])
         df["Description"] = None
         df["Country"] = "otro país"
-        trans, _, audit = limpiar(df, devolver_auditoria=True)
+        trans, _, audit = netear_por_dia(df, devolver_auditoria=True)
         self.assertEqual(trans.cliente.tolist(), ["1"])
         self.assertEqual(trans.venta_neta_exacta.iloc[0], "2")
         self.assertEqual(audit["filas_sin_customerid"], 1)
@@ -75,14 +75,26 @@ class LimpiezaRetailTest(unittest.TestCase):
             df = base.copy()
             df[columna] = valor
             with self.subTest(columna=columna), self.assertRaises(ValueError):
-                limpiar(df)
+                netear_por_dia(df)
         with self.assertRaisesRegex(ValueError, "Columnas requeridas"):
-            limpiar(base.drop(columns="UnitPrice"))
+            netear_por_dia(base.drop(columns="UnitPrice"))
+
+
+class LimpiarTarea3Test(unittest.TestCase):
+    def test_reglas_de_la_tarea(self):
+        df = pd.DataFrame({
+            "InvoiceNo": ["1", "1", "A2", "3", "C4", "5", "6"],
+            "StockCode": ["X", "X", "X", "X", "X", "POST", "X"],
+            "Quantity": [1, 1, 1, -1, -1, 1, 1],
+            "UnitPrice": [1., 1., 1., 1., 1., 1., 0.],
+        })
+        # se van: duplicado, factura A, negativa sin C, POST y precio 0; queda la cancelación
+        self.assertEqual(limpiar(df).index.tolist(), [0, 4])
 
 
 class HistoriasRetailTest(unittest.TestCase):
     def setUp(self):
-        self.trans = limpiar(lineas([
+        self.trans = netear_por_dia(lineas([
             (1, "2011-06-30 23:59:59", 1, 1, "A"),
             (1, "2011-07-01 22:00", 1, 1, "B"),
             (1, "2011-12-08 23:59:59", 1, 1, "C"),

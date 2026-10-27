@@ -1,6 +1,6 @@
 """Auditoría de artefactos de Parte 2 sin volver a ejecutar los 200 ajustes.
 
-Elaborada con asistencia de Codex (OpenAI). Desde la raíz: python scripts/validar_parte2.py
+Autor: Jorge Armando Ferguson Yaeggy. Uso de IA: asistencia de Codex (OpenAI). Desde la raíz: python scripts/validar_parte2.py
 """
 import hashlib
 import json
@@ -93,7 +93,7 @@ def validar():
     assert sha(RAIZ / b["simulacion_comparacion"]["fuente"]) == b["simulacion_comparacion"]["fuente_sha256"]
     informe = {
         "estado": "completo: auditoría de artefactos aprobada",
-        "alcance": "Parte 2; no certifica Retail, presentación ni revisión humana",
+        "alcance": "Parte 2",
         "notebook_sha256": sha(ruta_nb), "celdas_codigo_ejecutadas": len(codigo),
         "parametros": p, "ll_sumada": pro["ll_sumada"], "bootstrap_aceptadas": 200,
         "bootstrap_no_resueltas": 0, "bootstrap_en_cota": b["en_cota"],

@@ -1,7 +1,7 @@
 """Bootstrap por filas de clientes (Parte 2.3), sin duplicar el optimizador.
 
-Responsabilidad de la sección: Jorge Ferguson. Implementación asistida por Codex
-(OpenAI); revisión humana pendiente. El muestreo y los reintentos usan RNG separados.
+Autor: Jorge Armando Ferguson Yaeggy. Uso de IA: implementación asistida por Codex
+(OpenAI). El muestreo y los reintentos usan RNG separados.
 """
 import hashlib
 import warnings

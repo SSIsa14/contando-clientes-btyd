@@ -5,11 +5,10 @@
     "sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
     "fuente": "https://archive.ics.uci.edu/dataset/352/online+retail"
   },
-  "sustitucion_limpiador": {
-    "autorizada_por": "usuario",
-    "original_recuperada": false,
+  "limpiador": {
+    "funcion": "limpiar de la Tarea 3, luego netear_por_dia",
     "implementacion": "src/limpieza_retail.py",
-    "reglas": "neto firmado cliente-día > 0; devolución retenida; sin deduplicar"
+    "reglas": "reglas de limpiar; neto firmado cliente-día > 0 con devoluciones"
   },
   "origen_tiempo": "2010-12-01",
   "fin_calibracion": "2011-06-30",
@@ -17,15 +16,15 @@
   "fin_holdout": "2011-12-08",
   "tau_semanas": 23.0,
   "cohorte": {
-    "clientes": 2959,
-    "x_cero": 1417,
-    "fraccion_x_cero": 0.47887799932409597,
-    "transacciones_calibracion": 7894,
-    "repetidas_calibracion": 4935,
-    "compras_holdout_cohorte": 6341,
+    "clientes": 2958,
+    "x_cero": 1418,
+    "fraccion_x_cero": 0.4793779580797836,
+    "transacciones_calibracion": 7882,
+    "repetidas_calibracion": 4924,
+    "compras_holdout_cohorte": 6319,
     "clientes_sin_compras_holdout": 974,
     "clientes_solo_holdout_excluidos": 1374,
-    "compras_holdout_clientes_nuevos_excluidas": 2339,
+    "compras_holdout_clientes_nuevos_excluidas": 2327,
     "transacciones_9_diciembre_excluidas": 34,
     "T_min": 0.0,
     "T_max": 30.142857142857142,
@@ -37,12 +36,12 @@
     "adquisicion_max": "2011-06-30"
   },
   "parametros": {
-    "r": 0.7400738332312865,
-    "alpha": 9.144550405767946,
-    "a": 4.5400369297551414e-05,
-    "b": 22019.841245856747
+    "r": 0.7398385288684765,
+    "alpha": 9.163516938512174,
+    "a": 4.5399929762484854e-05,
+    "b": 21910.047232075864
   },
-  "ll_sumada": -15144.801920037338,
+  "ll_sumada": -15117.195290553507,
   "inicios_naturales": [
     [
       1,
@@ -80,20 +79,18 @@
         "success": true,
         "status": 0,
         "message": "Optimization terminated successfully.",
-        "objetivo": 5.118216262279728,
-        "objetivo_optimizador": 5.118216262279728,
+        "objetivo": 5.110613689193074,
+        "objetivo_optimizador": 5.110613689193074,
         "log_params": [
-          -0.3010109880038,
-          2.213157672125573,
-          -10.0,
-          9.99490810287639
+          -0.301332200697279,
+          2.215222543375672,
+          -9.473489293775861,
+          9.947203341707727
         ],
-        "nit": 327,
-        "nfev": 608,
+        "nit": 395,
+        "nfev": 724,
         "njev": null,
-        "en_cota": [
-          "a"
-        ],
+        "en_cota": [],
         "utilizable": true
       },
       {
@@ -110,17 +107,17 @@
         "success": true,
         "status": 0,
         "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-        "objetivo": 5.118216295136984,
-        "objetivo_optimizador": 5.118216295136984,
+        "objetivo": 5.110613815607091,
+        "objetivo_optimizador": 5.110613815607091,
         "log_params": [
-          -0.3014789910776896,
-          2.2126992621958865,
+          -0.3013223569667673,
+          2.2152268208897388,
           -10.0,
-          7.136524611328454
+          4.983985905981979
         ],
-        "nit": 25,
-        "nfev": 220,
-        "njev": 44,
+        "nit": 26,
+        "nfev": 160,
+        "njev": 32,
         "en_cota": [
           "a"
         ],
@@ -140,18 +137,20 @@
         "success": true,
         "status": 0,
         "message": "Optimization terminated successfully.",
-        "objetivo": 5.118216262448705,
-        "objetivo_optimizador": 5.118216262448705,
+        "objetivo": 5.110613688490029,
+        "objetivo_optimizador": 5.110613688490029,
         "log_params": [
-          -0.30100275943485366,
-          2.2131592100611757,
-          -9.814910100944136,
-          9.998277583138893
+          -0.3013233208257172,
+          2.215230050250342,
+          -10.0,
+          9.99470058831863
         ],
-        "nit": 284,
-        "nfev": 541,
+        "nit": 307,
+        "nfev": 576,
         "njev": null,
-        "en_cota": [],
+        "en_cota": [
+          "a"
+        ],
         "utilizable": true
       },
       {
@@ -168,17 +167,17 @@
         "success": true,
         "status": 0,
         "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-        "objetivo": 5.118216376356345,
-        "objetivo_optimizador": 5.118216376356345,
+        "objetivo": 5.110613730255696,
+        "objetivo_optimizador": 5.110613730255696,
         "log_params": [
-          -0.30099929495690975,
-          2.2131417426372093,
-          -10.0,
-          5.086003382777647
+          -0.30112698521188236,
+          2.215128047574785,
+          -9.999999984936697,
+          6.927646185159539
         ],
-        "nit": 41,
-        "nfev": 320,
-        "njev": 64,
+        "nit": 26,
+        "nfev": 235,
+        "njev": 47,
         "en_cota": [
           "a"
         ],
@@ -198,21 +197,18 @@
         "success": true,
         "status": 0,
         "message": "Optimization terminated successfully.",
-        "objetivo": 5.118216262263379,
-        "objetivo_optimizador": 5.118216262263379,
+        "objetivo": 5.110613688585681,
+        "objetivo_optimizador": 5.110613688585681,
         "log_params": [
-          -0.3010053231242059,
-          2.213158117787708,
-          -9.999990318642755,
-          9.999699200707392
+          -0.30133727129297083,
+          2.2152184996760313,
+          -9.91960383284226,
+          9.99264471594348
         ],
-        "nit": 351,
-        "nfev": 640,
+        "nit": 360,
+        "nfev": 682,
         "njev": null,
-        "en_cota": [
-          "a",
-          "b"
-        ],
+        "en_cota": [],
         "utilizable": true
       },
       {
@@ -229,23 +225,23 @@
         "success": true,
         "status": 0,
         "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-        "objetivo": 5.118216295682278,
-        "objetivo_optimizador": 5.118216295682278,
+        "objetivo": 5.110613887330567,
+        "objetivo_optimizador": 5.110613887330567,
         "log_params": [
-          -0.300950689595096,
-          2.2132385310514064,
-          -9.699813886115884,
-          6.649465616308006
+          -0.30132841656655374,
+          2.215226716092706,
+          -8.595278672755642,
+          5.981192046254374
         ],
-        "nit": 35,
-        "nfev": 445,
-        "njev": 89,
+        "nit": 28,
+        "nfev": 275,
+        "njev": 55,
         "en_cota": [],
         "utilizable": true
       }
     ],
-    "seleccionado": 4,
-    "n_clientes": 2959,
+    "seleccionado": 2,
+    "n_clientes": 2958,
     "objetivo": "-LL/n",
     "cotas_log": [
       -10.0,
@@ -266,32 +262,31 @@
     },
     "reintentos_discrepancia": 0,
     "en_cota": [
-      "a",
-      "b"
+      "a"
     ],
-    "rango_ll_exitosos": 0.00033760108431568625,
+    "rango_ll_exitosos": 0.0005881703108503444,
     "acuerdo_ll_exitosos": false,
     "n_exitosos": 6
   },
   "avisos": [
-    "Parámetros en la cota de búsqueda: ['a', 'b']"
+    "Parámetros en la cota de búsqueda: ['a']"
   ],
   "interpretacion": {
-    "tasa_semanal_activo": 0.08093058711388186,
-    "tasa_anual_activo_52": 4.208390529921856,
-    "abandono_medio_por_compra": 2.0617936658597735e-09,
-    "rango_ll_intentos": 0.00033760108431568625,
+    "tasa_semanal_activo": 0.08073739960681511,
+    "tasa_anual_activo_52": 4.198344779554386,
+    "abandono_medio_por_compra": 2.0721055133987493e-09,
+    "rango_ll_intentos": 0.0005881703108503444,
     "rango_pronostico_23": [
-      5507.799801891573,
-      5507.92930821692
+      5492.872689694625,
+      5493.495329601122
     ],
     "rango_a": [
       4.5399929762484854e-05,
-      6.129490182396496e-05
+      0.00018497707254494912
     ],
     "rango_b": [
-      161.7421471305383,
-      22019.841245856747
+      146.0553860068085,
+      21910.047232075864
     ]
   },
   "verificacion": {
@@ -303,26 +298,26 @@
       },
       {
         "tau": 1,
-        "max_diferencia_absoluta": 1.9563739517280965e-11
+        "max_diferencia_absoluta": 2.4336144210934663e-11
       },
       {
         "tau": 4,
-        "max_diferencia_absoluta": 7.341416363715325e-11
+        "max_diferencia_absoluta": 3.8946845748455416e-11
       },
       {
         "tau": 13,
-        "max_diferencia_absoluta": 2.0089174768145313e-10
+        "max_diferencia_absoluta": 1.7056400736237265e-10
       },
       {
         "tau": 23,
-        "max_diferencia_absoluta": 2.304076929249277e-10
+        "max_diferencia_absoluta": 1.1197265337159479e-10
       }
     ],
-    "limite_analitico_inferior_total": 5507.89083097225,
-    "limite_analitico_superior_total": 5507.890860580892,
+    "limite_analitico_inferior_total": 5492.887492690921,
+    "limite_analitico_superior_total": 5492.887522334348,
     "tolerancia_limites_relativa_con_piso_absoluto": 1e-07,
-    "exceso_maximo_sobre_superior": 2.798455134289668e-08,
-    "referencia_sin_abandono_total": 5507.890880233712,
+    "exceso_maximo_sobre_superior": 4.7367941791165435e-09,
+    "referencia_sin_abandono_total": 5492.8875419070055,
     "sin_cambio_codigo_compartido": true
   },
   "versiones": {
@@ -334,32 +329,30 @@
     "openpyxl": "3.1.5",
     "nbclient": "0.11.0",
     "nbformat": "5.11.1",
-    "python": "3.12.14"
+    "python": "3.12.3"
   },
   "codigo_sha256": {
-    "src/limpieza_retail.py": "f2d273469cbddb66768847406da2b9dcb04c006ad298d0875d651ce694577ac9",
-    "src/pronostico_retail.py": "5df2cac410a717fff8820590d8f30911540c30814654d457deaccd992edcf772",
+    "src/limpieza_retail.py": "f314ee9cc796425475c5567d1b9abaa1a42e3fbff6e6e5bc73fb4e71d951a189",
+    "src/pronostico_retail.py": "537ce27332e1a2beb18e136e07af1b69f4fb99827521d2fa6d5c9f586f8e4453",
     "src/datos.py": "00a25a3cdb91d5093f36df57cb016e6bef129400ce462218895d2c725e64a8e4",
-    "src/bgnbd.py": "80633adfc61fc31fd1f1b56973a211392195d1e6a6e1ef8ebdfdb9d2189db20d"
+    "src/bgnbd.py": "5878b2f26f76163c5fd495ee785ec1053edd2deabbf7365a7e7d17c3a640994d"
   },
   "artefactos_sha256": {
-    "resultados/retail_dias.csv": "9c0ac26e2a39608ce5b8e81380fd311d76f66e6ea583d506d73e04d842b54474",
-    "resultados/retail_clientes.csv": "f9c3fac240a209997cf90a7f0df894860bf79b681f8ef7c67f181a3f7420c46e",
-    "resultados/retail_frecuencias.csv": "a7cc33ba27e06b63f1ea249083f0e634b73a250c58296f3eb611be9c440539d7",
-    "resultados/retail_sensibilidad.csv": "9ad86496832e15d939f6fd5c4fb6b90ba2e39f5e7e2135f6d4c2dc59ad486bcc",
-    "resultados/retail_diario.csv": "5596de7a4aaeac9d85abc540feeb8908bf12907d9e88ec9b647c02a4329834f7",
-    "resultados/retail_semanal.csv": "dfd78f365625460a1b5c7c0d0241a59b8041160094b657c4c067606593b198d3",
-    "resultados/retail_mensual.csv": "43fc52b234e3da5789829ac34302040a8915852a363677363558f2e84486b116",
-    "resultados/retail_limpieza_auditoria.json": "ac3e5eb022603371e996d4dd67030f5ae626442f14b6f22bdf71b834a257e615",
-    "resultados/params_retail.json": "b7132fb38460105768dcbea1e017fbae08536faf65721328fd953e4e1123a56f",
-    "resultados/retail_holdout.json": "39d8359856bcaf5025cc8e35aa8aefcfd7aa27727e388553f75920bd20003130"
+    "resultados/retail_dias.csv": "92da9adbb9aac474304805d2e95307d936ea54d6abb19608b94ecd101df791dd",
+    "resultados/retail_clientes.csv": "58969a6bac1a48154a2d25e2595844773d70044258d42349a40e27118d94775a",
+    "resultados/retail_frecuencias.csv": "9f9a2f0ecf178d9bbbe1b8d452c946146c4813e5b1c98d40c5aad68e83ed6169",
+    "resultados/retail_sensibilidad.csv": "33601bff2071c31207faecfe8b4a7eb17686c9c6d8e20f41f30d7e52a9b60986",
+    "resultados/retail_diario.csv": "a70ae538f6c6338eba46925b911bac8b0f6d42c18dcab3b1cd7507dc48cf1855",
+    "resultados/retail_semanal.csv": "764141d156384571dcc912901f2c9ee021818a8890ad5605ee4fbeabcc673474",
+    "resultados/retail_mensual.csv": "78a0a2e1bc72bb2080a5247c55085f56612227507803fae62bffbf2ed854d180",
+    "resultados/retail_limpieza_auditoria.json": "9b1df9b66828d272cd97cabdc546e5d20534c2f51bbd8d3933a00256e55503be",
+    "resultados/params_retail.json": "e551b1980a6fe66e5ef344b49af9752c0593c0746d60c7d3497522cc8a7fb6a8",
+    "resultados/retail_holdout.json": "9a06a48e94cc6647b46cc315af5648a6b01b47274ed8d0b3931c48e706d4cbfa"
   },
-  "params_cdnow_sha256_sin_modificar": "a184ad4c2570e904d3d578dc4b20cfa42cae50107d5fed0e96cad67315ad58bd",
+  "params_cdnow_sha256_sin_modificar": "b91910a50e1c64a4515aac537b8609cfbaee77526be3cd76cf1a5f7c0768ceea",
   "limitaciones": [
     "cotas y débil identificación de a,b",
-    "una sola ventana para estacionalidad",
-    "original limpiar no recuperada; sustitución autorizada",
-    "revisión humana pendiente"
+    "una sola ventana para estacionalidad"
   ],
   "cambio_compartido": false
 }

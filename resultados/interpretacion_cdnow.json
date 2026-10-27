@@ -1,10 +1,10 @@
 {
-  "compras_semana_activo": 0.054965200286894715,
-  "compras_anio_activo": 2.858190414918525,
+  "compras_semana_activo": 0.05496520036687845,
+  "compras_anio_activo": 2.8581904190776792,
   "semanas_por_anio": 52,
-  "abandono_por_compra_repetida": 0.2463386868642038,
-  "asimetria_gamma": 4.060593334870111,
-  "DE_propension_abandono": 0.2097773034383295,
-  "P_p_menor_0_1": 0.3177274718108612,
-  "P_p_mayor_0_5": 0.14050455510058207
+  "abandono_por_compra_repetida": 0.24633867662615153,
+  "asimetria_gamma": 4.060593302748265,
+  "DE_propension_abandono": 0.209777279520774,
+  "P_p_menor_0_1": 0.3177274443422754,
+  "P_p_mayor_0_5": 0.14050452194818952
 }

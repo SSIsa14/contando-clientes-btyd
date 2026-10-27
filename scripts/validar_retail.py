@@ -1,7 +1,9 @@
 """Reconciliación independiente desde Excel y tablas guardadas, sin reajustar.
 
-No usa limpiar ni historias_retail para su oráculo de conteos/netos. Asistencia de
-Codex (OpenAI), revisión humana pendiente. Uso: python scripts/validar_retail.py
+No usa limpiar ni historias_retail para su oráculo de conteos/netos: reaplica las
+reglas de limpiar (Tarea 3) fila por fila con openpyxl y Decimal.
+Autor: Jorge Armando Ferguson Yaeggy. Uso de IA: asistencia de Codex (OpenAI).
+Uso: python scripts/validar_retail.py
 """
 from collections import defaultdict
 from datetime import datetime
@@ -19,6 +21,9 @@ from openpyxl import load_workbook
 RAIZ = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RAIZ / "src"))
 from bgnbd import esperado_Y, loglik_bgnbd, NOMBRES
+
+# copia de la lista de limpiar (Tarea 3) para que el oráculo no dependa de src/
+CODIGOS_NO_VENTA = {"POST", "DOT", "C2", "AMAZONFEE", "BANK CHARGES", "CRUK", "S", "B"}
 
 
 def sha(ruta):
@@ -39,7 +44,7 @@ def validar():
     params = leer("params_retail.json")
     assert set(params) == set(NOMBRES)
     assert all(type(v) is float and np.isfinite(v) and v > 0 for v in params.values())
-    assert params == pro["parametros"] and pro["sustitucion_limpiador"]["original_recuperada"] is False
+    assert params == pro["parametros"]
     assert sha(RAIZ / "resultados/params_cdnow.json") == pro["params_cdnow_sha256_sin_modificar"]
     for nombre, esperado in {**pro["codigo_sha256"], **pro["artefactos_sha256"]}.items():
         assert sha(RAIZ / nombre) == esperado, nombre
@@ -51,15 +56,25 @@ def validar():
     assert tuple(cabecera) == ("InvoiceNo", "StockCode", "Description", "Quantity", "InvoiceDate", "UnitPrice", "CustomerID", "Country")
     netos, n_lineas = defaultdict(Decimal), defaultdict(int)
     facturas, facturas_id = set(), set()
-    n = sin_id = devueltas = canceladas = 0
+    n = conservadas = sin_id = devueltas = canceladas = 0
+    vistas = set()
     with localcontext() as contexto:
         contexto.prec = 50
         for invoice, stock, desc, cantidad, fecha, precio, cliente, pais in filas:
             n += 1
-            facturas.add(str(invoice))
             assert isinstance(fecha, datetime)
             q, p = Decimal(str(cantidad)), Decimal(str(precio))
             assert q.is_finite() and p.is_finite()
+            # reglas de limpiar (Tarea 3), en su mismo orden
+            fila = (invoice, stock, desc, cantidad, fecha, precio, cliente, pais)
+            if fila in vistas:
+                continue
+            vistas.add(fila)
+            if (str(invoice).startswith("A") or (q < 0 and not str(invoice).startswith("C"))
+                    or str(stock) in CODIGOS_NO_VENTA or p <= 0):
+                continue
+            conservadas += 1
+            facturas.add(str(invoice))
             if cliente is None:
                 sin_id += 1
                 continue
@@ -70,7 +85,8 @@ def validar():
             devueltas += q < 0
             canceladas += str(invoice).upper().startswith("C")
     libro.close()
-    assert n == audit["filas_originales"] == 541909
+    assert n == audit["filas_crudas"] == 541909
+    assert conservadas == audit["filas_originales"]
     assert sin_id == audit["filas_sin_customerid"]
     assert len(facturas) == audit["facturas_unicas_originales"]
     assert len(facturas_id) == audit["facturas_unicas_con_customerid"]
@@ -160,14 +176,14 @@ def validar():
     informe = {
         "estado": "auditoría independiente aprobada", "raw_sha256": huella,
         "notebook_sha256": sha(RAIZ / "notebooks/05_online_retail.ipynb"),
-        "celdas_codigo_ejecutadas": len(codigo), "oraculo": "openpyxl + Decimal; sin limpiar/resumen_clientes",
+        "celdas_codigo_ejecutadas": len(codigo), "oraculo": "openpyxl + Decimal; reglas de limpiar reaplicadas, sin resumen_clientes",
         "dias_netos_reconciliados": len(netos), "clientes_reconciliados": len(clientes),
         "real_holdout": real_oraculo, "pronostico": total,
         "verificaciones": ["netos exactos y multiplicidad de líneas", "conteos de líneas/facturas",
             "cohorte y adquisición calificante", "ventanas y 23 semanas", "ceros de holdout",
             "sumas cliente/diario/semanal/mensual", "errores firmados/absolutos/porcentuales",
             "fuentes y artefactos por SHA-256", "notebook sin errores guardados"],
-        "alcance": "Parte 5; revisión humana, presentación e integración final pendientes",
+        "alcance": "Parte 5",
     }
     (RAIZ / "resultados/validacion_retail.json").write_text(
         json.dumps(informe, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")

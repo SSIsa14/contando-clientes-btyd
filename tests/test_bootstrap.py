@@ -1,4 +1,4 @@
-"""Muestreo, multiplicidad y contabilidad de fallos; asistencia de Codex."""
+"""Pruebas del bootstrap 2.3: muestreo, multiplicidad y fallos. Autor: Jorge Ferguson; asistidas por Codex (OpenAI)."""
 import hashlib
 import sys
 import unittest

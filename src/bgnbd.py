@@ -14,8 +14,8 @@ para comprender lo que pedía cada inciso del enunciado y como asistencia al esc
 y depurar el código. El análisis, la verificación de resultados y su interpretación
 fueron revisados por los autores.
 
-Extensión de diagnóstico y validación (Parte 2): elaborada con asistencia de
-Codex (OpenAI); la revisión humana de esta extensión queda pendiente.
+Extensión de diagnóstico y validación (Parte 2, Jorge Ferguson): elaborada con
+asistencia de Codex (OpenAI).
 """
 import warnings
 

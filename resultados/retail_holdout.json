@@ -6,15 +6,15 @@
   "tau_semanas": 23.0,
   "unidad": "transacciones cliente-día de venta neta > 0",
   "cohorte": {
-    "clientes": 2959,
-    "x_cero": 1417,
-    "fraccion_x_cero": 0.47887799932409597,
-    "transacciones_calibracion": 7894,
-    "repetidas_calibracion": 4935,
-    "compras_holdout_cohorte": 6341,
+    "clientes": 2958,
+    "x_cero": 1418,
+    "fraccion_x_cero": 0.4793779580797836,
+    "transacciones_calibracion": 7882,
+    "repetidas_calibracion": 4924,
+    "compras_holdout_cohorte": 6319,
     "clientes_sin_compras_holdout": 974,
     "clientes_solo_holdout_excluidos": 1374,
-    "compras_holdout_clientes_nuevos_excluidas": 2339,
+    "compras_holdout_clientes_nuevos_excluidas": 2327,
     "transacciones_9_diciembre_excluidas": 34,
     "T_min": 0.0,
     "T_max": 30.142857142857142,
@@ -25,14 +25,14 @@
     "adquisicion_min": "2010-12-01",
     "adquisicion_max": "2011-06-30"
   },
-  "pronostico_total": 5507.890886578898,
-  "real_total": 6341,
-  "error_firmado": -833.1091134211019,
-  "error_absoluto": 833.1091134211019,
-  "error_porcentual": -13.138449982985364,
+  "pronostico_total": 5492.88750877192,
+  "real_total": 6319,
+  "error_firmado": -826.1124912280802,
+  "error_absoluto": 826.1124912280802,
+  "error_porcentual": -13.07346876448932,
   "convencion_error": "pronóstico menos observado; porcentaje = 100*(pronóstico-observado)/observado",
-  "prediccion_cliente_min": 0.43326092844297137,
-  "prediccion_cliente_max": 34.38815976052075,
+  "prediccion_cliente_min": 0.4329141696610397,
+  "prediccion_cliente_max": 34.37142871412563,
   "finitud_no_negatividad_monotonia_diaria_verificadas": true,
   "verificacion": {
     "lifetimes": "mismos parámetros; sin ajuste de paquete; penalizer_coef=0.0",
@@ -43,35 +43,35 @@
       },
       {
         "tau": 1,
-        "max_diferencia_absoluta": 1.9563739517280965e-11
+        "max_diferencia_absoluta": 2.4336144210934663e-11
       },
       {
         "tau": 4,
-        "max_diferencia_absoluta": 7.341416363715325e-11
+        "max_diferencia_absoluta": 3.8946845748455416e-11
       },
       {
         "tau": 13,
-        "max_diferencia_absoluta": 2.0089174768145313e-10
+        "max_diferencia_absoluta": 1.7056400736237265e-10
       },
       {
         "tau": 23,
-        "max_diferencia_absoluta": 2.304076929249277e-10
+        "max_diferencia_absoluta": 1.1197265337159479e-10
       }
     ],
-    "limite_analitico_inferior_total": 5507.89083097225,
-    "limite_analitico_superior_total": 5507.890860580892,
+    "limite_analitico_inferior_total": 5492.887492690921,
+    "limite_analitico_superior_total": 5492.887522334348,
     "tolerancia_limites_relativa_con_piso_absoluto": 1e-07,
-    "exceso_maximo_sobre_superior": 2.798455134289668e-08,
-    "referencia_sin_abandono_total": 5507.890880233712,
+    "exceso_maximo_sobre_superior": 4.7367941791165435e-09,
+    "referencia_sin_abandono_total": 5492.8875419070055,
     "sin_cambio_codigo_compartido": true
   },
   "noviembre": {
-    "compras": 1645,
+    "compras": 1643,
     "dias": 30,
-    "real_por_dia": 54.833333333333336,
-    "pronostico_por_dia": 34.21050219246172,
-    "razon_diaria_vs_octubre": 1.5245142002989538,
+    "real_por_dia": 54.766666666666666,
+    "pronostico_por_dia": 34.117313565238994,
+    "razon_diaria_vs_octubre": 1.5281428142814282,
     "diciembre_observado_dias": 8,
-    "diciembre_real_por_dia": 57.875
+    "diciembre_real_por_dia": 57.75
   }
 }

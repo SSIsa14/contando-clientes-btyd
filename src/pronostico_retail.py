@@ -1,6 +1,6 @@
 """Tablas calendario del holdout Retail usando esperado_Y compartido.
 
-Responsabilidad de Jorge; asistencia de Codex (OpenAI), revisión humana pendiente.
+Autor: Jorge Armando Ferguson Yaeggy. Uso de IA: asistencia de Codex (OpenAI).
 No modifica parámetros ni reemplaza resultados numéricos inválidos.
 """
 import numpy as np

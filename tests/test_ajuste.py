@@ -1,4 +1,4 @@
-"""Pruebas de riesgos del ajuste compartido; elaboradas con asistencia de Codex."""
+"""Pruebas del ajuste compartido (Partes 2 y 4.6). Autor: Jorge Ferguson; asistidas por Codex (OpenAI)."""
 import sys
 import unittest
 import warnings

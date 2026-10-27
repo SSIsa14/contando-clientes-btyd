@@ -4,6 +4,17 @@ Proyecto 2 de Análisis y Ciencia de Datos (Universidad del Istmo). Implementaci
 
 **Integrantes:** Sofía Isabela Sandoval Vásquez · Herman Andrés Echeverría Rojas · Jorge Armando Ferguson Yaeggy · José Gregorio Coronel Colombo
 
+**Diapositivas:** [`slides/presentacion.pdf`](slides/presentacion.pdf)
+
+## Quién hizo qué
+
+| Integrante | Partes |
+|---|---|
+| Sofía Sandoval | Parte 0 (preparación de datos), Parte 3 (pronóstico bottom-up vs. top-down), integración del repositorio |
+| Herman Echeverría | Parte 1 (derivación, verosimilitud, ajuste y simulación), Parte 6 (logística vs. BG/NBD) |
+| Jorge Ferguson | Parte 2 (ajuste a CDNOW, interpretación y bootstrap), Parte 5 (Online Retail) |
+| José Gregorio Coronel | Parte 4 (¿quién sigue vivo?, P(Z = 1) y MBG/NBD) |
+
 ## Estructura
 
 ```
@@ -16,7 +27,7 @@ src/
   mbgnbd.py                    verosimilitud, ajuste y pronóstico del MBG/NBD
   simulacion.py                simulador de clientes BG/NBD
   bootstrap_cdnow.py           bootstrap sobre clientes
-  limpieza_retail.py           limpieza de Online Retail
+  limpieza_retail.py           limpiar (de la tarea de series de tiempo) y venta neta por cliente-día
   pronostico_retail.py         historias y pronóstico de Online Retail
 notebooks/
   00_preparacion.ipynb         Parte 0: preparación de los datos
@@ -28,8 +39,9 @@ notebooks/
   06_logistica.ipynb           Parte 6 (opcional): regresión logística vs. BG/NBD
 resultados/                    parámetros estimados y tablas generadas
 figs/                          figuras generadas por los notebooks
+slides/                        diapositivas de la presentación (PDF)
 docs/                          detalles de reproducción de las Partes 2 y 5
-scripts/, tests/               validaciones automáticas de las Partes 2 y 5
+scripts/, tests/               descarga del Excel original, validaciones y pruebas automáticas
 ```
 
 ## Cómo correrlo
@@ -42,6 +54,14 @@ jupyter notebook
 ```
 
 Ejecutar los notebooks en orden, de `00` a `06`, desde la carpeta `notebooks/`. Todos parten de los archivos originales de `data/`. El notebook `02` estima los parámetros de CDNOW y los guarda en `resultados/params_cdnow.json`, archivo que leen los notebooks `01`, `03`, `04` y `06`; el repositorio ya lo incluye, por lo que el orden anterior funciona desde un clon nuevo. Los notebooks `01`, `02` y `05` tardan algunos minutos (simulación, bootstrap y carga del Excel).
+
+Pruebas y validaciones, desde la raíz:
+
+```bash
+python -m unittest discover -s tests
+python scripts/validar_parte2.py
+python scripts/validar_retail.py
+```
 
 Las versiones exactas con las que se validaron las Partes 2 y 5 están en `requirements-parte2.lock`; los pasos de reproducción y validación de esas partes están en [docs/parte2.md](docs/parte2.md) y [docs/parte5.md](docs/parte5.md).
 

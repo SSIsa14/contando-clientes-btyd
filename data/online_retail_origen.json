@@ -71,5 +71,5 @@
   "filas_unitprice_no_positivo": 2517,
   "transformaciones": "ninguna; original conservado sin limpieza ni agregación",
   "reproducir": "python scripts/obtener_retail.py",
-  "limpiar_original": "no recuperada; reutilización pendiente"
+  "limpieza": "limpiar de la Tarea 3, aplicada en src/limpieza_retail.py"
 }

@@ -1,6 +1,6 @@
 """Recupera/verifica el Excel original UCI 352 e inventaría su esquema, sin limpiar.
 
-Asistencia de implementación: Codex (OpenAI); revisión humana pendiente.
+Autor: Jorge Armando Ferguson Yaeggy. Uso de IA: asistencia de Codex (OpenAI).
 Uso desde la raíz: python scripts/obtener_retail.py [--zip archivo.zip]
 Un archivo existente con otra huella nunca se sobrescribe.
 """
@@ -87,7 +87,7 @@ def recuperar(archivo_zip=None):
         "filas_unitprice_no_positivo": no_positivo_precio,
         "transformaciones": "ninguna; original conservado sin limpieza ni agregación",
         "reproducir": "python scripts/obtener_retail.py",
-        "limpiar_original": "no recuperada; reutilización pendiente",
+        "limpieza": "limpiar de la Tarea 3, aplicada en src/limpieza_retail.py",
     }
     (raiz / "data/online_retail_origen.json").write_text(
         json.dumps(informe, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
