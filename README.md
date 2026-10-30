@@ -4,7 +4,7 @@ Proyecto 2 de Análisis y Ciencia de Datos (Universidad del Istmo). Implementaci
 
 **Integrantes:** Sofía Isabela Sandoval Vásquez · Herman Andrés Echeverría Rojas · Jorge Armando Ferguson Yaeggy · José Gregorio Coronel Colombo
 
-**Diapositivas:** [`slides/presentacion.pdf`](slides/presentacion.pdf)
+**Diapositivas:** [`slides/presentacion Final.pdf`](slides/presentacion%20Final.pdf)
 
 ## Quién hizo qué
 
